@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nabil Flores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#" class="logo">nabil<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!--
+    Hero section.
+    Using an ASCII art card instead of a photo/illustration
+    because stock images are boring and I don't do design.
+  -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <p class="tagline">Backend Developer & Linux Systems</p>
+      <h1>Nabil <span class="highlight">Flores</span></h1>
+      <p class="bio">
+        I build WhatsApp automation with
+        <a href="https://github.com/whiskeysockets/baileys" target="_blank" rel="noopener">Baileys</a>,
+        manage Linux infrastructure, and write scripts so I don't have to do
+        the same thing twice. Web dev isn't really my thing — but this site
+        exists, so make of that what you will.
+      </p>
+      <div class="buttons">
+        <a href="#work" class="btn primary">See my work</a>
+        <a href="#contact" class="btn outline">Get in touch</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <pre>┌─────────────────────────┐
+│                         │
+│   ╭───────────────╮     │
+│   │ $ whoami      │     │
+│   │ flores        │     │
+│   │               │     │
+│   │ $ uname -r    │     │
+│   │ arch linux    │     │
+│   │               │     │
+│   │ $ uptime      │     │
+│   │ always on     │     │
+│   ╰───────────────╯     │
+│                         │
+│  nabil flores           │
+│  developer / sysadmin   │
+│                         │
+└─────────────────────────┘</pre>
+    </aside>
+  </section>
+
+  <hr class="sep">
+
+  <!--
+    Projects.
+    Replace these with your actual repos when ready.
+    Each card is just an <article> — copy/paste to add more.
+  -->
+  <section class="page-section" id="work">
+    <h2>Selected Work</h2>
+    <p class="subtitle">Stuff I built and actually use.</p>
+
+    <div class="cards">
+      <article class="card">
+        <span class="tag">Node.js / Baileys</span>
+        <h3>WhatsApp Bot</h3>
+        <p>
+          Group management, media handling, custom commands.
+          Talks directly to the WA Web API through Baileys —
+          no third-party wrappers.
+        </p>
+        <a href="https://github.com/bluebleaze" target="_blank" rel="noopener">Source →</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Bash / Linux</span>
+        <h3>Server Automation</h3>
+        <p>
+          Provisioning, monitoring, backups. Written for headless
+          Arch and Debian boxes that I don't want to babysit.
+        </p>
+        <a href="https://github.com/bluebleaze" target="_blank" rel="noopener">Source →</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Dotfiles</span>
+        <h3>Arch Linux Setup</h3>
+        <p>
+          Neovim, zsh, WM configs. Everything version-controlled
+          so I can nuke and reinstall without thinking.
+        </p>
+        <a href="https://github.com/bluebleaze" target="_blank" rel="noopener">Source →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills — grouped by what I actually do, not buzzword bingo -->
+  <section class="page-section alt" id="skills">
+    <h2>Skills</h2>
+    <p class="subtitle">Tools I reach for daily.</p>
+
+    <div class="skill-cols">
+      <div class="skill-box">
+        <h4>Languages</h4>
+        <ul>
+          <li>JavaScript / Node.js</li>
+          <li>Bash / Shell</li>
+          <li>HTML & CSS (enough to survive)</li>
+        </ul>
+      </div>
+      <div class="skill-box">
+        <h4>Platforms</h4>
+        <ul>
+          <li>Baileys (WA Web API)</li>
+          <li>Linux — Arch, Debian, Ubuntu</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </div>
+      <div class="skill-box">
+        <h4>Infra</h4>
+        <ul>
+          <li>Server admin</li>
+          <li>Networking — DNS, SSH, iptables</li>
+          <li>systemd, pm2, cron</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="contact">
+    <h2>Contact</h2>
+    <p class="subtitle">Want to talk? Pick your channel.</p>
+
+    <div class="contact-row">
+      <a href="https://github.com/bluebleaze" target="_blank" rel="noopener" class="contact-link">
+        <span class="icon">⟨/⟩</span>
+        <strong>GitHub</strong>
+        <span>bluebleaze</span>
+      </a>
+      <a href="mailto:flores@example.com" class="contact-link">
+        <span class="icon">@</span>
+        <strong>Email</strong>
+        <span>flores@example.com</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Hand-coded. No frameworks. No templates.</p>
+    <p class="muted">© 2026 Nabil Flores</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

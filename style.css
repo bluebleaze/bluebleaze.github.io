@@ -1,0 +1,436 @@
+/*
+  style.css
+  ---------
+  Dark portfolio theme. Arch Linux blue (#1793d1) as the accent.
+
+  Layout:
+  - .nav         sticky top bar
+  - .hero        intro + ascii card side by side
+  - .page-section  each content block (work, skills, contact)
+  - .card        project cards in a css grid
+  - .skill-box   skill category columns
+  - .contact-link  clickable contact tiles
+
+  All colors and fonts live in :root so you can reskin
+  the whole thing by changing a few values.
+*/
+
+/* reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* backgrounds */
+  --bg:       #0b0f15;
+  --bg-alt:   #0f1319;
+  --surface:  #141a23;
+  --border:   #1c2433;
+
+  /* accent — arch blue */
+  --accent:       #1793d1;
+  --accent-hover: #20a8e8;
+  --accent-glow:  #1793d122;
+
+  /* text */
+  --text:    #d4d7dc;
+  --heading: #eaecef;
+  --muted:   #4a5568;
+
+  /* fonts — falls back gracefully if custom fonts aren't installed */
+  --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* layout */
+  --max-w:  940px;
+  --radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* offset for sticky nav when jumping to #anchors */
+  scroll-padding-top: 70px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 var(--sans);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+ul { list-style: none; }
+
+
+/* ---- NAV ---- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 16px 24px;
+  background: var(--bg);
+  border-bottom: 1px solid transparent; /* js adds .scrolled to show it */
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.logo {
+  font: 700 1.15rem var(--mono);
+  color: var(--heading);
+  letter-spacing: -0.5px;
+}
+.logo .dot { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.nav-links a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+/* ---- HERO ---- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+}
+
+.hero-text { flex: 1; }
+
+.tagline {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--heading);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.highlight { color: var(--accent); }
+
+.bio {
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.buttons { display: flex; gap: 12px; }
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.primary:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn.outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn.outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ascii card next to hero text */
+.hero-card {
+  flex-shrink: 0;
+}
+.hero-card pre {
+  font: 0.72rem/1.5 var(--mono);
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+
+
+/* ---- SHARED SECTION STYLES ---- */
+
+.sep {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-inline: 24px;
+}
+
+.page-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+/* alt bg for visual rhythm — skills section uses this */
+.page-section.alt {
+  background: var(--bg-alt);
+  max-width: 100%;
+}
+/* but keep inner content at max-w */
+.page-section.alt h2,
+.page-section.alt .subtitle,
+.page-section.alt .skill-cols {
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-section h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+}
+
+
+/* ---- PROJECT CARDS ---- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tag {
+  display: block;
+  font: 0.7rem var(--mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.card a {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+/* ---- SKILL BOXES ---- */
+
+.skill-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.skill-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.skill-box h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--heading);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-box li {
+  font-size: 0.9rem;
+  padding: 5px 0 5px 12px;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.15s;
+}
+.skill-box li:hover {
+  border-left-color: var(--accent);
+}
+
+
+/* ---- CONTACT ---- */
+
+.contact-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  min-width: 220px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.contact-link:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.contact-link .icon {
+  font: 1.4rem var(--mono);
+  color: var(--accent);
+}
+
+.contact-link strong {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.contact-link span:last-child {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+
+/* ---- FOOTER ---- */
+
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+footer p + p { margin-top: 4px; }
+
+.muted { color: var(--muted); }
+
+
+/* ---- SCROLLBAR (webkit only, firefox uses defaults) ---- */
+
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+
+/* ---- SCROLL REVEAL ---- */
+/* sections start hidden, js adds .visible when they scroll into view */
+
+.page-section,
+.hero {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.page-section.visible,
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+/* ---- MOBILE ---- */
+
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    padding: 48px 20px 40px;
+    gap: 32px;
+  }
+  .hero h1 { font-size: 2rem; }
+  .hero-card { display: none; } /* ascii card doesn't fit on small screens */
+  .page-section { padding: 48px 20px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.75rem; }
+  .skill-cols { padding: 0; }
+}
+
+@media (max-width: 420px) {
+  .nav-links { display: none; } /* too cramped, logo is enough */
+}
