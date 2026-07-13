@@ -1,21 +1,3 @@
-/*
-  style.css
-  ---------
-  Dark portfolio theme. Arch Linux blue (#1793d1) as the accent.
-
-  Layout:
-  - .nav         sticky top bar
-  - .hero        intro + ascii card side by side
-  - .page-section  each content block (work, skills, contact)
-  - .card        project cards in a css grid
-  - .skill-box   skill category columns
-  - .contact-link  clickable contact tiles
-
-  All colors and fonts live in :root so you can reskin
-  the whole thing by changing a few values.
-*/
-
-/* reset */
 *,
 *::before,
 *::after {
@@ -25,34 +7,28 @@
 }
 
 :root {
-  /* backgrounds */
   --bg:       #0b0f15;
   --bg-alt:   #0f1319;
   --surface:  #141a23;
   --border:   #1c2433;
 
-  /* accent — arch blue */
   --accent:       #1793d1;
   --accent-hover: #20a8e8;
   --accent-glow:  #1793d122;
 
-  /* text */
   --text:    #d4d7dc;
   --heading: #eaecef;
   --muted:   #4a5568;
 
-  /* fonts — falls back gracefully if custom fonts aren't installed */
   --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
-  /* layout */
   --max-w:  940px;
   --radius: 6px;
 }
 
 html {
   scroll-behavior: smooth;
-  /* offset for sticky nav when jumping to #anchors */
   scroll-padding-top: 70px;
 }
 
@@ -72,9 +48,6 @@ a:hover {
 
 ul { list-style: none; }
 
-
-/* ---- NAV ---- */
-
 .nav {
   position: sticky;
   top: 0;
@@ -86,7 +59,7 @@ ul { list-style: none; }
   margin: 0 auto;
   padding: 16px 24px;
   background: var(--bg);
-  border-bottom: 1px solid transparent; /* js adds .scrolled to show it */
+  border-bottom: 1px solid transparent;
 }
 
 .nav.scrolled {
@@ -115,9 +88,6 @@ ul { list-style: none; }
   color: var(--text);
   text-decoration: none;
 }
-
-
-/* ---- HERO ---- */
 
 .hero {
   display: flex;
@@ -157,7 +127,6 @@ ul { list-style: none; }
 
 .buttons { display: flex; gap: 12px; }
 
-/* buttons */
 .btn {
   display: inline-block;
   padding: 10px 22px;
@@ -186,7 +155,6 @@ ul { list-style: none; }
   text-decoration: none;
 }
 
-/* ascii card next to hero text */
 .hero-card {
   flex-shrink: 0;
 }
@@ -199,9 +167,6 @@ ul { list-style: none; }
   padding: 16px 20px;
   box-shadow: 0 0 40px var(--accent-glow);
 }
-
-
-/* ---- SHARED SECTION STYLES ---- */
 
 .sep {
   max-width: var(--max-w);
@@ -217,12 +182,11 @@ ul { list-style: none; }
   padding: 72px 24px;
 }
 
-/* alt bg for visual rhythm — skills section uses this */
 .page-section.alt {
   background: var(--bg-alt);
   max-width: 100%;
 }
-/* but keep inner content at max-w */
+
 .page-section.alt h2,
 .page-section.alt .subtitle,
 .page-section.alt .skill-cols {
@@ -243,9 +207,6 @@ ul { list-style: none; }
   font-size: 0.95rem;
   margin-bottom: 40px;
 }
-
-
-/* ---- PROJECT CARDS ---- */
 
 .cards {
   display: grid;
@@ -292,9 +253,6 @@ ul { list-style: none; }
   font-weight: 600;
 }
 
-
-/* ---- SKILL BOXES ---- */
-
 .skill-cols {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -328,9 +286,6 @@ ul { list-style: none; }
 .skill-box li:hover {
   border-left-color: var(--accent);
 }
-
-
-/* ---- CONTACT ---- */
 
 .contact-row {
   display: flex;
@@ -372,9 +327,6 @@ ul { list-style: none; }
   color: var(--text);
 }
 
-
-/* ---- FOOTER ---- */
-
 footer {
   text-align: center;
   padding: 32px 24px;
@@ -386,9 +338,6 @@ footer p + p { margin-top: 4px; }
 
 .muted { color: var(--muted); }
 
-
-/* ---- SCROLLBAR (webkit only, firefox uses defaults) ---- */
-
 ::-webkit-scrollbar       { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -397,10 +346,6 @@ footer p + p { margin-top: 4px; }
   background: var(--accent);
   color: var(--bg);
 }
-
-
-/* ---- SCROLL REVEAL ---- */
-/* sections start hidden, js adds .visible when they scroll into view */
 
 .page-section,
 .hero {
@@ -414,9 +359,6 @@ footer p + p { margin-top: 4px; }
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-
-/* ---- MOBILE ---- */
-
 @media (max-width: 700px) {
   .hero {
     flex-direction: column;
@@ -424,7 +366,7 @@ footer p + p { margin-top: 4px; }
     gap: 32px;
   }
   .hero h1 { font-size: 2rem; }
-  .hero-card { display: none; } /* ascii card doesn't fit on small screens */
+  .hero-card { display: none; }
   .page-section { padding: 48px 20px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 0.75rem; }
@@ -432,5 +374,5 @@ footer p + p { margin-top: 4px; }
 }
 
 @media (max-width: 420px) {
-  .nav-links { display: none; } /* too cramped, logo is enough */
+  .nav-links { display: none; }
 }

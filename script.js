@@ -1,31 +1,11 @@
-/*
-  script.js
-  ---------
-  Two small features:
-  1. Show a border on the nav when the page is scrolled
-  2. Fade sections in as they scroll into view
-
-  No libraries. Uses IntersectionObserver (supported everywhere modern).
-*/
-
 (function () {
   'use strict';
-
-  // -- Nav scroll indicator --
-  // Adds a bottom border to the nav once you scroll down a bit.
-  // Without this the nav blends into the hero on load, which looks cleaner.
 
   var nav = document.querySelector('.nav');
 
   window.addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true }); // passive = better scroll perf
-
-
-  // -- Scroll reveal --
-  // Sections start at opacity:0 (set in CSS).
-  // When a section enters the viewport, we add .visible to trigger
-  // the CSS transition. Each section only animates once.
+  }, { passive: true });
 
   var sections = document.querySelectorAll('.page-section, .hero');
 
@@ -44,12 +24,6 @@
   for (var i = 0; i < sections.length; i++) {
     observer.observe(sections[i]);
   }
-
-
-  // -- Smooth scroll for anchor links --
-  // The CSS scroll-behavior:smooth already works, but this
-  // version prevents the default jump so the URL doesn't change
-  // until after the scroll finishes (less jarring).
 
   var anchors = document.querySelectorAll('a[href^="#"]');
 
