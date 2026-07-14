@@ -7,20 +7,21 @@
 }
 
 :root {
-  --bg:       #0b0f15;
-  --bg-alt:   #0f1319;
-  --surface:  #141a23;
-  --border:   #1c2433;
+  --bg:       #111110;
+  --bg-alt:   #161615;
+  --surface:  #1c1c1a;
+  --border:   #2a2a27;
 
-  --accent:       #1793d1;
-  --accent-hover: #20a8e8;
-  --accent-glow:  #1793d122;
+  --accent:       #c9753d;
+  --accent-hover: #d98a52;
+  --accent-glow:  #c9753d1a;
 
-  --text:    #d4d7dc;
-  --heading: #eaecef;
-  --muted:   #4a5568;
+  --text:    #b5b3ad;
+  --heading: #eeece8;
+  --muted:   #6b6963;
 
-  --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --heading-font: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   --max-w:  940px;
@@ -110,10 +111,8 @@ ul { list-style: none; }
 }
 
 .hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
+  font: 800 2.8rem/1.15 var(--heading-font);
   color: var(--heading);
-  line-height: 1.15;
   margin-bottom: 20px;
   letter-spacing: -1px;
 }
@@ -196,8 +195,7 @@ ul { list-style: none; }
 }
 
 .page-section h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font: 700 1.6rem/1.3 var(--heading-font);
   color: var(--heading);
   margin-bottom: 8px;
 }
@@ -267,8 +265,8 @@ ul { list-style: none; }
   padding: 24px;
 }
 
-.skill-box h4 {
-  font-size: 0.85rem;
+.skill-box h3 {
+  font: 600 0.85rem/1.4 var(--heading-font);
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--heading);
