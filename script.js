@@ -25,6 +25,21 @@
     observer.observe(sections[i]);
   }
 
+  var hamburger = document.querySelector('.hamburger');
+  var navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    }
+  });
+
   var anchors = document.querySelectorAll('a[href^="#"]');
 
   for (var j = 0; j < anchors.length; j++) {
