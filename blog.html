@@ -91,15 +91,16 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html" data-i18n="blog.nav.home">Home</a></li>
+      <li><a href="blog.html" data-i18n="blog.nav.blog">Blog</a></li>
     </ul>
+    <button class="lang-toggle" onclick="toggleLang()">ID</button>
   </nav>
 
   <div class="blog-header">
-    <a href="index.html" class="back-link">← Back</a>
-    <h1>Blog</h1>
-    <p>Thoughts, notes, and stuff I learned along the way.</p>
+    <a href="index.html" class="back-link" data-i18n="blog.back">← Back</a>
+    <h1 data-i18n="blog.title">Blog</h1>
+    <p data-i18n="blog.subtitle">Thoughts, notes, and stuff I learned along the way.</p>
   </div>
 
   <div class="blog-list">
@@ -107,8 +108,8 @@
     <!-- TEMPLATE: copy this block to add a new post -->
     <article class="blog-post">
       <p class="blog-date">15 Jul 2025</p>
-      <h2>Why I Run a Home Server on an Old Laptop</h2>
-      <p>
+      <h2 data-i18n="blog.post1.title">Why I Run a Home Server on an Old Laptop</h2>
+      <p data-i18n="blog.post1.body">
         Most people throw away their old laptops. I turned mine into a Debian
         home server — CasaOS for management, Immich for photo backups,
         Tailscale so I can access everything from anywhere. It hosts my
@@ -126,9 +127,10 @@
   </div>
 
   <footer>
-    <p class="muted">© 2026 Nabil Abhitah Abyasha</p>
+    <p class="muted" data-i18n="footer.copy">© 2026 Nabil Abhitah Abyasha</p>
   </footer>
 
+  <script src="lang.js"></script>
   <script>
     var hamburger = document.querySelector('.hamburger');
     var navLinks = document.querySelector('.nav-links');
