@@ -445,3 +445,33 @@ footer p + p { margin-top: 4px; }
   .page-section { padding: 48px 20px; }
   .skill-cols { padding: 0; }
 }
+
+/* Highlight for specific cards */
+.card.highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(234, 46, 46, 0.2);
+}
+
+/* Navbar Right Grouping */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Language Toggle styling to make it fit */
+.lang-toggle {
+  background: var(--surface);
+  color: var(--heading);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font: 500 0.85rem var(--mono);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
