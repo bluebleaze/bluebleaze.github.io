@@ -3,12 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nabil Abhitah Abyasha</title>
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluebleaze.github.io/">
+  <meta property="og:title" content="Nabil Abhitah Abyasha — Portfolio">
+  <meta property="og:description" content="Personal portfolio of Nabil Abhitah Abyasha. Open source developer, Linux enthusiast, and creator of Ruby Tools.">
+  <meta property="og:image" content="https://bluebleaze.github.io/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://bluebleaze.github.io/">
+  <meta property="twitter:title" content="Nabil Abhitah Abyasha — Portfolio">
+  <meta property="twitter:description" content="Personal portfolio of Nabil Abhitah Abyasha. Open source developer, Linux enthusiast, and creator of Ruby Tools.">
+  <meta property="twitter:image" content="https://bluebleaze.github.io/og-image.png">
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .hero {
+      position: relative;
+    }
+    .hero-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(234, 46, 46, 0.4);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+    }
+    .card.highlight {
+      grid-column: 1 / -1;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    @media (min-width: 800px) {
+      .projects-grid {
+        align-items: start;
+      }
+    }
+    .mt-auto {
+      margin-top: auto;
+    }
+    .tag-new {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @media (min-width: 768px) {
+      .hero-avatar {
+        margin-bottom: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,13 +77,13 @@
     
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#about" data-i18n="nav.about">About</a></li>
-        <li><a href="#work" data-i18n="nav.work">Work</a></li>
-        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="lang-toggle" aria-label="Toggle language" onclick="toggleLang()">ID</button>
+      <a href="https://wa.me/08821035548" class="btn primary" style="padding: 6px 12px; font-size: 0.8rem; margin-left: 10px;">HIRE ME</a>
       <button class="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -31,10 +91,11 @@
   </nav>
   
   <section class="hero" id="about">
+    <img src="logos/avatar.png" alt="Avatar" class="hero-avatar">
     <div class="hero-text">
-      <p class="tagline" data-i18n="hero.tagline">Backend Developer &amp; Linux Systems</p>
+      <p class="tagline">Backend Developer &amp; Linux Systems</p>
       <h1>Nabil Abhitah Abyasha <span class="highlight">aka Flores</span></h1>
-      <p class="bio" data-i18n="hero.bio">
+      <p class="bio">
         High school student at SMK Telkom Banjarbaru, Software Engineering major.
         I build WhatsApp automation with
         <a href="https://github.com/whiskeysockets/baileys" target="_blank" rel="noopener">Baileys</a>,
@@ -43,8 +104,8 @@
         exists, so make of that what you will.
       </p>
       <div class="buttons">
-        <a href="#work" class="btn primary" data-i18n="hero.btn.work">See my work</a>
-        <a href="#contact" class="btn outline" data-i18n="hero.btn.contact">Get in touch</a>
+        <a href="#work" class="btn primary">See my work</a>
+        <a href="#contact" class="btn outline">Get in touch</a>
       </div>
     </div>
     <aside class="hero-card">
@@ -71,20 +132,20 @@
   <hr class="sep">
 
   <section class="page-section" id="work">
-    <h2 data-i18n="work.title">Selected Work</h2>
-    <p class="subtitle" data-i18n="work.subtitle">Stuff I built and actually use.</p>
+    <h2>Selected Work</h2>
+    <p class="subtitle">Stuff I built and actually use.</p>
 
     <div class="cards">
       <article class="card">
         <span class="tag">Node.js / Baileys</span>
         <h3>WhatsApp Bot</h3>
-        <p data-i18n="work.wa.desc">
+        <p>
           Group management, media handling, custom commands.
           Talks directly to the WA Web API through Baileys —
           no third-party wrappers.
         </p>
         <a href="https://github.com/bluebleaze" target="_blank" rel="noopener">Source →</a>
-        <div class="logo-marquee"><div class="logo-track">
+        <div class="logo-marquee mt-auto"><div class="logo-track">
           <img src="logos/baileys.svg" alt="Baileys">
           <img src="logos/openclaw.svg" alt="OpenClaw">
           <img src="logos/ssh.svg" alt="SSH">
@@ -100,16 +161,41 @@
         </div></div>
       </article>
 
+      <article class="card highlight">
+        <span class="tag">AI Web App</span>
+        <h3>Ruby Tools <span class="tag-new">NEW</span></h3>
+        <p>
+          AI Open Source Web image utility web app with a Linux terminal aesthetic.
+          Originally built for WhatsApp bot Ruby, now extracted into a standalone app.
+        </p>
+        <a href="https://github.com/bluebleaze/ruby-tools/tree/main" target="_blank" rel="noopener">Source →</a>
+        <a href="https://rubytool.space" target="_blank" rel="noopener">Demo →</a>
+        <div class="logo-marquee mt-auto"><div class="logo-track">
+          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/openclaw.svg" alt="OpenClaw">
+          <img src="logos/debian.svg" alt="Debian">
+          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/openclaw.svg" alt="OpenClaw">
+          <img src="logos/debian.svg" alt="Debian">
+          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/openclaw.svg" alt="OpenClaw">
+          <img src="logos/debian.svg" alt="Debian">
+          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/openclaw.svg" alt="OpenClaw">
+          <img src="logos/debian.svg" alt="Debian">
+        </div></div>
+      </article>
+
       <article class="card">
         <span class="tag">Debian / Self-hosted</span>
         <h3>Home Server</h3>
-        <p data-i18n="work.server.desc">
+        <p>
           Old laptop running Debian, set up from scratch. CasaOS for
           the web UI, Immich for photo backups, Tailscale for remote
           access. Doubles as personal cloud storage and hosts my
           WhatsApp bot 24/7.
         </p>
-        <div class="logo-marquee"><div class="logo-track">
+        <div class="logo-marquee mt-auto"><div class="logo-track">
           <img src="logos/debian.svg" alt="Debian">
           <img src="logos/casaos.svg" alt="CasaOS">
           <img src="logos/immich.svg" alt="Immich">
@@ -132,12 +218,12 @@
       <article class="card">
         <span class="tag">Dotfiles</span>
         <h3>Arch Linux Setup</h3>
-        <p data-i18n="work.arch.desc">
+        <p>
           Neovim, zsh, WM configs. Everything version-controlled
           so I can nuke and reinstall without thinking.
         </p>
         <a href="https://github.com/bluebleaze" target="_blank" rel="noopener">Source →</a>
-        <div class="logo-marquee"><div class="logo-track">
+        <div class="logo-marquee mt-auto"><div class="logo-track">
           <img src="logos/archlinux.svg" alt="Arch Linux">
           <img src="logos/tux.svg" alt="Tux">
           <img src="logos/ssh.svg" alt="SSH">
@@ -154,43 +240,26 @@
           <img src="logos/tux.svg" alt="Tux">
           <img src="logos/ssh.svg" alt="SSH">
           <img src="logos/openclaw.svg" alt="OpenClaw">
-        </div></div>
-      </article>
-
-      <article class="card highlight">
-        <span class="tag">AI Web App</span>
-        <h3>Ruby Tools</h3>
-        <p>
-          AI Open Source Web image utility web app with a Linux terminal aesthetic.
-          Originally built for WhatsApp bot Ruby, now extracted into a standalone app.
-        </p>
-        <a href="https://github.com/bluebleaze/ruby-tools/tree/main" target="_blank" rel="noopener">Source →</a>
-        <a href="https://rubytool.space" target="_blank" rel="noopener">Demo →</a>
-        <div class="logo-marquee"><div class="logo-track">
-          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/archlinux.svg" alt="Arch Linux">
+          <img src="logos/tux.svg" alt="Tux">
+          <img src="logos/ssh.svg" alt="SSH">
           <img src="logos/openclaw.svg" alt="OpenClaw">
-          <img src="logos/debian.svg" alt="Debian">
-          <img src="logos/tux.svg" alt="Linux">
+          <img src="logos/archlinux.svg" alt="Arch Linux">
+          <img src="logos/tux.svg" alt="Tux">
+          <img src="logos/ssh.svg" alt="SSH">
           <img src="logos/openclaw.svg" alt="OpenClaw">
-          <img src="logos/debian.svg" alt="Debian">
-          <img src="logos/tux.svg" alt="Linux">
-          <img src="logos/openclaw.svg" alt="OpenClaw">
-          <img src="logos/debian.svg" alt="Debian">
-          <img src="logos/tux.svg" alt="Linux">
-          <img src="logos/openclaw.svg" alt="OpenClaw">
-          <img src="logos/debian.svg" alt="Debian">
         </div></div>
       </article>
     </div>
   </section>
 
     <section class="page-section alt" id="skills">
-    <h2 data-i18n="skills.title">Skills</h2>
-    <p class="subtitle" data-i18n="skills.subtitle">Tools I reach for daily.</p>
+    <h2>Skills</h2>
+    <p class="subtitle">Tools I reach for daily.</p>
 
     <div class="skill-cols">
       <div class="skill-box">
-        <h3 data-i18n="skills.languages">Languages</h3>
+        <h3>Languages</h3>
         <ul>
           <li>JavaScript / Node.js</li>
           <li>Bash / Shell</li>
@@ -198,7 +267,7 @@
         </ul>
       </div>
       <div class="skill-box">
-        <h3 data-i18n="skills.platforms">Platforms</h3>
+        <h3>Platforms</h3>
         <ul>
           <li>Baileys (WA Web API)</li>
           <li>Linux — Arch, Debian, Ubuntu</li>
@@ -206,7 +275,7 @@
         </ul>
       </div>
       <div class="skill-box">
-        <h3 data-i18n="skills.infra">Infra</h3>
+        <h3>Infra</h3>
         <ul>
           <li>Server admin</li>
           <li>Networking — DNS, SSH, iptables</li>
@@ -217,8 +286,8 @@
   </section>
 
   <section class="page-section" id="contact">
-    <h2 data-i18n="contact.title">Contact</h2>
-    <p class="subtitle" data-i18n="contact.subtitle">Want to talk? Pick your channel.</p>
+    <h2>Contact</h2>
+    <p class="subtitle">Want to talk? Pick your channel.</p>
 
     <div class="contact-row">
       <a href="https://github.com/bluebleaze" target="_blank" rel="noopener" class="contact-link">
@@ -235,10 +304,9 @@
   </section>
 
   <footer> 
-    <p class="muted" data-i18n="footer.copy">© 2026 Nabil Abhitah Abyasha</p>
+    <p class="muted">© 2026 Nabil Abhitah Abyasha</p>
   </footer>
 
-  <script src="lang.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

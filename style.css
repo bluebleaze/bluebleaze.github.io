@@ -210,6 +210,7 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+  align-items: center;
 }
 
 .card {
@@ -264,12 +265,14 @@ ul { list-style: none; }
 .logo-track {
   display: flex;
   gap: 20px;
+  align-items: center;
   width: max-content;
   animation: marquee 20s linear infinite;
 }
 
 .logo-track img {
   height: 16px;
+  align-self: center;
   width: auto;
   opacity: 0.45;
   filter: grayscale(1) brightness(1.5);
@@ -328,6 +331,7 @@ ul { list-style: none; }
 .contact-row {
   display: flex;
   gap: 20px;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -458,6 +462,7 @@ footer p + p { margin-top: 4px; }
   display: flex;
   align-items: center;
   gap: 20px;
+  align-items: center;
 }
 
 /* Language Toggle styling to make it fit */
