@@ -420,6 +420,7 @@ footer p + p { margin-top: 4px; }
 
 @media (max-width: 700px) {
   .hamburger { display: flex; }
+  .nav-right { gap: 12px; }
   .nav-links {
     display: none;
     position: absolute;
@@ -456,22 +457,24 @@ footer p + p { margin-top: 4px; }
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 /* Language Toggle styling to make it fit */
 .lang-toggle {
-  background: var(--surface);
-  color: var(--heading);
+  background: transparent;
+  color: var(--text);
   border: 1px solid var(--border);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font: 500 0.85rem var(--mono);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font: 600 0.8rem var(--mono);
   cursor: pointer;
   transition: all 0.2s;
+  text-transform: uppercase;
 }
 
 .lang-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--surface);
+  color: var(--heading);
+  border-color: var(--text);
 }
