@@ -7,7 +7,7 @@
     nav.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  var sections = document.querySelectorAll('.page-section, .hero');
+  var sections = document.querySelectorAll('.page-section, .hero-wrapper');
 
   var observer = new IntersectionObserver(function (entries) {
     for (var i = 0; i < entries.length; i++) {

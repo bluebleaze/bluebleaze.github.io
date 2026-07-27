@@ -201,11 +201,10 @@ ul { list-style: none; }
 .hero-card pre {
   font: 0.72rem/1.5 var(--mono);
   color: var(--accent);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: transparent;
+  border: none;
   padding: 16px 20px;
-  box-shadow: 0 0 40px var(--accent-glow);
+  box-shadow: none;
 }
 
 .sep {
@@ -251,7 +250,7 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  align-items: center;
+  align-items: start;
 }
 
 .card {
@@ -431,12 +430,12 @@ footer p + p { margin-top: 4px; }
 }
 
 .page-section,
-.hero {
+.hero-wrapper {
   opacity: 0;
   transform: translateY(16px);
 }
 .page-section.visible,
-.hero.visible {
+.hero-wrapper.visible {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -482,10 +481,11 @@ footer p + p { margin-top: 4px; }
   .nav-links a { font-size: 0.9rem; }
   .nav { position: relative; }
   .hero {
-    flex-direction: column-reverse;
-    padding: 48px 20px 40px;
-    gap: 32px;
+    flex-direction: column;
+    padding: 24px 20px 32px;
+    gap: 24px;
   }
+  .hero-wrapper { padding: 0 12px; }
   .hero h1 { font-size: 2rem; }
   .hero-card pre { font-size: 0.62rem; }
   .page-section { padding: 48px 20px; }
