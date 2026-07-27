@@ -90,13 +90,54 @@ ul { list-style: none; }
   text-decoration: none;
 }
 
+/* ── Hero / Titlebar ── */
+.hero-wrapper {
+  max-width: var(--max-w);
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-alt);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dots span:nth-child(1) { background: #ed655a; }
+.dots span:nth-child(2) { background: #e0c04c; }
+.dots span:nth-child(3) { background: #72cb57; }
+
+.titlebar-text {
+  margin-left: 14px;
+  font-size: .8rem;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
 .hero {
   display: flex;
   align-items: center;
   gap: 48px;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 80px 24px 60px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .hero-text { flex: 1; }
