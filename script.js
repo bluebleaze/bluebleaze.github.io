@@ -53,4 +53,34 @@
     });
   }
 
+  var asciiBox = document.querySelector('.hero-card pre');
+  if (asciiBox) {
+    var raw = asciiBox.textContent.trim();
+    var lines = raw.split('\n');
+    asciiBox.innerHTML = '';
+    
+    var scanline = document.createElement('div');
+    scanline.className = 'scanline';
+    asciiBox.appendChild(scanline);
+    
+    lines.forEach(function(line) {
+      var span = document.createElement('span');
+      span.className = 'ascii-line';
+      span.textContent = line || '\u00a0';
+      asciiBox.appendChild(span);
+    });
+    
+    var spans = asciiBox.querySelectorAll('.ascii-line');
+    spans.forEach(function(s, i) {
+      setTimeout(function() {
+        s.classList.add('visible');
+      }, i * 60 + 200); 
+    });
+    
+    setTimeout(function() {
+      scanline.classList.add('active');
+      asciiBox.classList.add('glow');
+    }, spans.length * 60 + 400);
+  }
+
 })();
