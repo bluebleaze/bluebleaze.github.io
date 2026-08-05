@@ -364,7 +364,7 @@ ul { list-style: none; }
 
 .card-featured {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.25fr 1fr;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -609,6 +609,7 @@ footer p + p { margin-top: 4px; }
   .card-featured-marquee {
     border-left: none;
     border-top: 1px solid var(--border);
+    min-height: 120px;
   }
 }
 
