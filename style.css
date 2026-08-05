@@ -372,6 +372,7 @@ ul { list-style: none; }
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s, border-color 0.2s;
+  min-height: 380px;
 }
 
 .card-featured:hover {
@@ -380,9 +381,10 @@ ul { list-style: none; }
 }
 
 .card-featured-body {
-  padding: 32px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .card-featured-body h3 {
@@ -395,8 +397,7 @@ ul { list-style: none; }
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 24px;
-  flex: 1;
+  margin-bottom: 32px;
 }
 
 .card-featured-links {
@@ -605,6 +606,10 @@ footer p + p { margin-top: 4px; }
   }
   .card-featured {
     grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .card-featured-body {
+    padding: 32px 24px;
   }
   .card-featured-marquee {
     border-left: none;
